@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peça seu show</title>
+  <style>
+    :root {
+      --fundo-pagina: #1e2240;
+      --cartao: #ffffff;
+      --texto: #1d2033;
+      --texto-suave: #5d6178;
+      --linha: #d9dbe6;
+      --destaque: #f2a93b;
+      --destaque-hover: #dc932a;
+      --foco: #4a52c4;
+      --erro: #c0392b;
+    }
+
+    body {
+      max-width: 520px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: var(--fundo-pagina);
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      line-height: 1.5;
+    }
+
+    /* Cabeçalho */
+    header { margin-bottom: 1.5rem; }
+    header h1 { margin: 0 0 0.5rem; font-size: 1.9rem; line-height: 1.2; }
+    header p { margin: 0; color: rgba(255, 255, 255, 0.8); }
+
+    /* Seções fora do formulário */
+    section { margin: 2rem 0; }
+    section h2 { margin: 0 0 0.75rem; font-size: 1.15rem; }
+
+    .estilos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .estilos li {
+      padding: 0.25rem 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    .passos {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .passos li { margin-bottom: 0.4rem; }
+
+    /* Formulário */
+    fieldset {
+      margin: 0;
+      padding: 1.5rem;
+      border: 0;
+      border-radius: 10px;
+      background: var(--cartao);
+      color: var(--texto);
+    }
+    legend { padding: 0; font-weight: 600; }
+    fieldset br { display: none; }
+    fieldset div { margin-bottom: 1rem; }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: var(--texto-suave);
+      font-size: 0.9rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.55rem;
+      border: 1px solid var(--linha);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--texto);
+      font: inherit;
+    }
+    textarea { resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--foco);
+      outline: 2px solid var(--foco);
+      outline-offset: 1px;
+    }
+    input:user-invalid, select:user-invalid, textarea:user-invalid {
+      border-color: var(--erro);
+    }
+
+    .consentimento label {
+      display: flex;
+      gap: 0.5rem;
+      align-items: flex-start;
+      margin: 0;
+    }
+    .consentimento input { width: auto; margin-top: 0.3rem; }
+
+    button {
+      padding: 0.65rem 1.4rem;
+      border: 0;
+      border-radius: 6px;
+      background: var(--destaque);
+      color: var(--texto);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--destaque-hover); }
+
+    /* Rodapé */
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+    footer p { margin: 0 0 0.5rem; }
+    footer ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    footer a { color: var(--destaque); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer a:focus-visible { outline: 2px solid var(--destaque); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Peça seu show</h1>
+    <p>Conte um pouco sobre o seu evento e responderemos em até 24 horas com disponibilidade e orçamento.</p>
+  </header>
+
+  <section>
+    <h2>Estilos que tocamos</h2>
+    <ul class="estilos">
+      <li>Funk</li>
+      <li>Pagode</li>
+      <li>MPB</li>
+      <li>Rock</li>
+    </ul>
+  </section>
+
+  <form action="paginaEventos.jsp" method="post">
+    <fieldset>
+      <legend>Dados do evento</legend>
+
+      <div>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="seunome" autocomplete="name" required>
+      </div>
+
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="seuemail" autocomplete="email" required>
+      </div>
+
+      <div>
+        <label for="telefone">WhatsApp</label>
+        <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(11) 91234-5678" required>
+      </div>
+
+      <div>
+        <label for="idade">Idade</label>
+        <input type="number" id="idade" name="idade" min="14" max="100">
+      </div>
+
+      <div>
+        <label for="tipo">Tipo de evento</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecione</option>
+          <option value="aniversario">Aniversário</option>
+          <option value="casamento">Casamento</option>
+          <option value="corporativo">Corporativo</option>
+          <option value="bar">Bar ou restaurante</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="modalidade">Estilo do show</label>
+        <select id="modalidade" name="modalidade">
+          <option value="1">Show de funk</option>
+          <option value="2">Show de pagode</option>
+          <option value="3">Show de MPB</option>
+          <option value="4">Show de rock</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="data">Data do evento</label>
+        <input type="date" id="data" name="data" min="2026-09-10" required>
+      </div>
+
+      <div>
+        <label for="horario">Horário preferido</label>
+        <input type="time" id="horario" name="horario" min="18:00" max="22:00" required>
+      </div>
+
+      <div>
+        <label for="local">Cidade do evento</label>
+        <input type="text" id="local" name="local" required>
+      </div>
+
+      <div>
+        <label for="convidados">Número de convidados</label>
+        <input type="number" id="convidados" name="convidados" min="1">
+      </div>
+
+      <div>
+        <label for="orcamento">Orçamento previsto</label>
+        <select id="orcamento" name="orcamento">
+          <option value="">Prefiro conversar</option>
+          <option value="ate2">Até R$ 2.000</option>
+          <option value="2a5">R$ 2.000 a R$ 5.000</option>
+          <option value="5mais">Acima de R$ 5.000</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="obs">Observações</label>
+        <textarea id="obs" name="obs" rows="4"></textarea>
+      </div>
+
+      <div class="consentimento">
+        <label>
+          <input type="checkbox" name="consentimento" required>
+          Concordo em compartilhar meus dados para contato sobre este pedido.
+        </label>
+      </div>
+
+      <button type="submit">Enviar pedido</button>
+    </fieldset>
+  </form>
+
+  <section>
+    <h2>Como funciona</h2>
+    <ol class="passos">
+      <li>Você envia o pedido pelo formulário.</li>
+      <li>Respondemos em até 24 horas com disponibilidade e orçamento.</li>
+      <li>Combinamos os detalhes e confirmamos a data.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p>Prefere falar direto? Fale com a gente:</p>
+    <ul>
+      <li><a href="https://wa.me/5511912345678">WhatsApp</a></li>
+      <li><a href="https://instagram.com/seuperfil">Instagram</a></li>
+      <li><a href="mailto:contato@seusite.com">contato@seusite.com</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
